@@ -161,6 +161,10 @@
             }
         }
 
+        .hero-padding {
+            padding: 120px 0 60px;
+        }
+
         /* Main Content */
         .main-content {
             display: none;
@@ -603,17 +607,126 @@
         <nav class="nav container">
             <div class="logo">
                 <i class="fas fa-wifi"></i>
-                Ultralinks Broadband Africa
+                Ultralinks Broadband 
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" aria-label="Main Navigation">
                 <li><a href="#home" class="nav-link active" onclick="showSection('home')">Home</a></li>
-                <li><a href="#packages" class="nav-link" onclick="showSection('packages')">Packages</a></li>
                 <li><a href="#coverage" class="nav-link" onclick="showSection('coverage')">Coverage</a></li>
                 <li><a href="#about" class="nav-link" onclick="showSection('about')">About Us</a></li>
                 <li><a href="#support" class="nav-link" onclick="showSection('support')">Support</a></li>
-                <li><a href="#contact" class="cta-btn" onclick="showSection('contact')">Request Installation</a></li>
+                <li><a href="#contact" class="cta-btn" onclick="showSection('contact')"> Request for Installation</a></li>
             </ul>
-            <div class="mobile-menu">
+            <style>
+                .nav {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1rem 0;
+                    width: 100%;
+                }
+                .nav-links {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+                    align-items: center;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    width: auto;
+                }
+                .nav-links li {
+                    flex: 1 1 auto;
+                    min-width: 80px;
+                    text-align: center;
+                }
+                .nav-links a {
+                    display: block;
+                    padding: 0.5rem 1rem;
+                    border-radius: 25px;
+                    transition: background 0.3s, color 0.3s;
+                    font-weight: 500;
+                    color: var(--secondary-black);
+                    text-decoration: none;
+                    position: relative;
+                }
+                .nav-links a.active,
+                .nav-links a:hover {
+                    background: var(--primary-orange);
+                    color: var(--secondary-white);
+                }
+                .nav-links .cta-btn {
+                    background: var(--primary-orange);
+                    color: var(--secondary-white);
+                    border-radius: 25px;
+                    font-weight: 600;
+                    padding: 0.5rem 1.5rem;
+                    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+                    box-shadow: 0 2px 8px rgba(242,92,5,0.15);
+                }
+                .nav-links .cta-btn:hover {
+                    background: #d94a04;
+                    color: var(--secondary-white);
+                    box-shadow: 0 4px 16px rgba(242,92,5,0.25);
+                }
+                @media (max-width: 1024px) {
+                    .nav-links {
+                        gap: 1rem;
+                    }
+                    .nav-links li {
+                        min-width: 60px;
+                    }
+                }
+                @media (max-width: 768px) {
+                    .nav-links {
+                        flex-direction: column;
+                        gap: 0.5rem;
+                        position: absolute;
+                        top: 70px;
+                        left: 0;
+                        width: 100vw;
+                        background: var(--secondary-white);
+                        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+                        z-index: 999;
+                        display: none;
+                        padding: 1rem 0;
+                    }
+                    .nav-links.show {
+                        display: flex !important;
+                    }
+                    .nav-links li {
+                        min-width: unset;
+                        width: 100%;
+                    }
+                    .nav-links a,
+                    .nav-links .cta-btn {
+                        width: 90vw;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                }
+            </style>
+            <script>
+                // Liquid mobile menu toggle
+                document.addEventListener('DOMContentLoaded', function() {
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    const navLinks = document.querySelector('.nav-links');
+                    if (mobileMenu && navLinks) {
+                        mobileMenu.addEventListener('click', function() {
+                            navLinks.classList.toggle('show');
+                        });
+                        window.addEventListener('resize', function() {
+                            if (window.innerWidth > 768) {
+                                navLinks.classList.remove('show');
+                                navLinks.style.display = 'flex';
+                            } else {
+                                navLinks.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            </script>
+            <div class="mobile-menu" aria-label="Open Mobile Menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -717,14 +830,10 @@
             <div class="container">
                 <h2>First-Time Installation Special!</h2>
                 <p>Get connected for only KES 4,500 (includes router + 10 Mbps for 1st month)</p>
-                <button class="cta-btn" onclick="showSection('contact')">Request Installation</button>
+                <button class="cta-btn" onclick="showSection('contact')" aria-label="Request Installation">Request Installation</button>
             </div>
         </section>
-    </section>
-
-    <!-- Packages Section -->
-    <section id="packages" class="main-content">
-        <div class="hero" style="padding: 120px 0 60px;">
+        <div class="hero hero-padding">
             <div class="container">
                 <h1>Internet Packages</h1>
                 <p>Choose the perfect plan for your needs</p>
@@ -765,7 +874,7 @@
                             <li><i class="fas fa-check"></i> 1-2 devices</li>
                             <li><i class="fas fa-check"></i> Standard definition streaming</li>
                         </ul>
-                        <button class="cta-btn">Choose This Plan</button>
+                        <button class="cta-btn" onclick="buyPackageWhatsApp('8 Mbps', 'KES 1,200/month')" aria-label="Choose 8 Mbps Plan">Choose This Plan</button>
                     </div>
                     
                     <div class="package-card">
@@ -778,7 +887,7 @@
                             <li><i class="fas fa-check"></i> 2-3 devices</li>
                             <li><i class="fas fa-check"></i> Video conferencing</li>
                         </ul>
-                        <button class="cta-btn">Choose This Plan</button>
+                        <button class="cta-btn" onclick="buyPackageWhatsApp('10 Mbps', 'KES 1,500/month')" aria-label="Choose 10 Mbps Plan">Choose This Plan</button>
                     </div>
                     
                     <div class="package-card">
@@ -791,7 +900,7 @@
                             <li><i class="fas fa-check"></i> 4-6 devices</li>
                             <li><i class="fas fa-check"></i> Large file downloads</li>
                         </ul>
-                        <button class="cta-btn">Choose This Plan</button>
+                        <button class="cta-btn" onclick="buyPackageWhatsApp('20 Mbps', 'KES 2,500/month')" aria-label="Choose 20 Mbps Plan">Choose This Plan</button>
                     </div>
                     
                     <div class="package-card">
@@ -804,7 +913,7 @@
                             <li><i class="fas fa-check"></i> 8+ devices</li>
                             <li><i class="fas fa-check"></i> Cloud services & backup</li>
                         </ul>
-                        <button class="cta-btn">Choose This Plan</button>
+                        <button class="cta-btn" onclick="buyPackageWhatsApp('30 Mbps', 'KES 3,000/month')" aria-label="Choose 30 Mbps Plan">Choose This Plan</button>
                     </div>
                 </div>
             </div>
@@ -1100,9 +1209,9 @@
                     <h3>Ultralinks Broadband Africa</h3>
                     <p>Connecting communities across Kenya with reliable, affordable internet solutions. Ultra Speeds, Ultimate Reliability.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="https://wa.me/254795908428"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -1112,7 +1221,7 @@
                     <ul>
                         <li><a href="#home" onclick="showSection('home')">Home</a></li>
                         <li><a href="#packages" onclick="showSection('packages')">Internet Packages</a></li>
-                        <li><a href="#student-deals" onclick="showSection('student-deals')">Student Deals</a></li>
+                        <li><a href="ultralinks_student_broadband_embed_html.html">Student Deals</a></li>
                         <li><a href="#coverage" onclick="showSection('coverage')">Coverage Areas</a></li>
                         <li><a href="#about" onclick="showSection('about')">About Us</a></li>
                         <li><a href="#support" onclick="showSection('support')">Support</a></li>
@@ -1149,7 +1258,7 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/254795908428" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/254795908428" class="whatsapp-float" target="_blank" rel="noopener" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1161,21 +1270,24 @@
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            
+
             // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
             // Update navigation active state
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
-            
+
             const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
             if (activeLink && activeLink.classList.contains('nav-link')) {
                 activeLink.classList.add('active');
             }
-            
+
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1184,7 +1296,7 @@
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             const icon = element.querySelector('i');
-            
+
             if (answer.classList.contains('active')) {
                 answer.classList.remove('active');
                 icon.style.transform = 'rotate(0deg)';
@@ -1192,10 +1304,10 @@
                 // Close all other FAQs
                 const allAnswers = document.querySelectorAll('.faq-answer');
                 const allIcons = document.querySelectorAll('.faq-question i');
-                
+
                 allAnswers.forEach(ans => ans.classList.remove('active'));
                 allIcons.forEach(ic => ic.style.transform = 'rotate(0deg)');
-                
+
                 // Open clicked FAQ
                 answer.classList.add('active');
                 icon.style.transform = 'rotate(180deg)';
@@ -1206,7 +1318,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Add smooth scroll behavior
             document.documentElement.style.scrollBehavior = 'smooth';
-            
+
             // Form submission handler
             const form = document.querySelector('form');
             if (form) {
@@ -1216,13 +1328,13 @@
                     form.reset();
                 });
             }
-            
+
             // Add animation on scroll (optional)
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
-            
+
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1231,7 +1343,7 @@
                     }
                 });
             }, observerOptions);
-            
+
             // Observe package cards for animation
             const packageCards = document.querySelectorAll('.package-card');
             packageCards.forEach(card => {
@@ -1240,16 +1352,39 @@
                 card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(card);
             });
+
+            // Responsive mobile menu reset
+            window.addEventListener('resize', function() {
+                const navLinks = document.querySelector('.nav-links');
+                if (window.innerWidth > 768) {
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
+                }
+            });
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle (improved)
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        
+
         if (mobileMenu) {
             mobileMenu.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                }
             });
+        }
+
+        // WhatsApp buy package function
+        function buyPackageWhatsApp(speed, price) {
+            const phone = '254795908428';
+            const message = encodeURIComponent(
+                `Hello, I am interested in the following internet package:\n\nPackage: ${speed}\nPrice: ${price}\n\nPlease assist me with the purchase and installation process.`
+            );
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
     </script>
 </body>
