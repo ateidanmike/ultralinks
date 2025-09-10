@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultralinks Broadband Africa - Ultra Speeds, Ultimate Reliability</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #F25C05;
+            --secondary-white: #FFFFFF;
+            --secondary-black: #000000;
+            --accent-purple: #9B26AF;
+            --accent-green: #1ABC9C;
+            --accent-blue: #2E86DE;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-black);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: var(--secondary-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-orange);
+        }
+
+        .cta-btn {
+            background: var(--primary-orange);
+            color: var(--secondary-white);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: #d94a04;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary-black);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(242, 92, 5, 0.9), rgba(242, 92, 5, 0.9)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDYwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjZjhmOWZhIi8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjE1MCIgcj0iNDAiIGZpbGw9IiMxQUJDOUMiIG9wYWNpdHk9IjAuMyIvPgo8Y2lyY2xlIGN4PSI5MDAiIGN5PSI0NTAiIHI9IjYwIiBmaWxsPSIjMkU4NkRFIiBvcGFjaXR5PSIwLjMiLz4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iMzAwIiByPSI4MCIgZmlsbD0iIzlCMjZBRiIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPgo=');
+            background-size: cover;
+            background-position: center;
+            color: var(--secondary-white);
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .cta-btn {
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none;
+        }
+
+        .main-content.active {
+            display: block;
+        }
+
+        /* Package Cards */
+        .packages {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary-black);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .package-card {
+            background: var(--secondary-white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid;
+        }
+
+        .package-card:nth-child(1) { border-top-color: var(--accent-purple); }
+        .package-card:nth-child(2) { border-top-color: var(--accent-green); }
+        .package-card:nth-child(3) { border-top-color: var(--accent-blue); }
+        .package-card:nth-child(4) { border-top-color: var(--primary-orange); }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .package-speed {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .package-features i {
+            color: var(--accent-green);
+            margin-right: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--secondary-white);
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+
+        /* Installation Banner */
+        .installation-banner {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: var(--secondary-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .installation-banner h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .installation-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-black);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: var(--secondary-white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        /* Coverage Section */
+        .coverage {
+            padding: 80px 0;
+            background: var(--secondary-white);
+        }
+
+        .coverage-content {
+            text-align: center;
+        }
+
+        .map-placeholder {
+            background: var(--light-gray);
+            height: 400px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+            border: 2px dashed var(--medium-gray);
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: var(--secondary-white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-orange);
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-black);
+            color: var(--secondary-white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-orange);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--secondary-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-orange);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-orange);
+            color: var(--secondary-white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-white);
+            color: var(--primary-orange);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: var(--medium-gray);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: var(--secondary-white);
+        }
+
+        .faq-item {
+            background: var(--light-gray);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: var(--secondary-white);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--light-gray);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i class="fas fa-wifi"></i>
+                Ultralinks Broadband Africa
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" onclick="showSection('home')">Home</a></li>
+                <li><a href="#packages" class="nav-link" onclick="showSection('packages')">Packages</a></li>
+                <li><a href="#coverage" class="nav-link" onclick="showSection('coverage')">Coverage</a></li>
+                <li><a href="#about" class="nav-link" onclick="showSection('about')">About Us</a></li>
+                <li><a href="#support" class="nav-link" onclick="showSection('support')">Support</a></li>
+                <li><a href="#contact" class="cta-btn" onclick="showSection('contact')">Request Installation</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="main-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Ultra Speeds, Ultimate Reliability.</h1>
+                <p>Affordable broadband solutions for homes, businesses, and institutions across Kenya.</p>
+                <button class="cta-btn" onclick="showSection('packages')">Get Connected Today</button>
+            </div>
+        </section>
+
+        <!-- Packages Highlight -->
+        <section class="packages">
+            <div class="container">
+                <h2 class="section-title">Choose Your Perfect Plan</h2>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-speed">8 Mbps</div>
+                        <div class="package-price">KES 1,200/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Perfect for Students</li>
+                            <li><i class="fas fa-check"></i> Light Browsing</li>
+                            <li><i class="fas fa-check"></i> Social Media</li>
+                            <li><i class="fas fa-check"></i> Email & Messaging</li>
+                        </ul>
+                        <button class="cta-btn">Sign Up Now</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-speed">10 Mbps</div>
+                        <div class="package-price">KES 1,500/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Small Households</li>
+                            <li><i class="fas fa-check"></i> HD Video Streaming</li>
+                            <li><i class="fas fa-check"></i> Online Gaming</li>
+                            <li><i class="fas fa-check"></i> Video Calls</li>
+                        </ul>
+                        <button class="cta-btn">Sign Up Now</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-speed">20 Mbps</div>
+                        <div class="package-price">KES 2,500/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Work From Home</li>
+                            <li><i class="fas fa-check"></i> Multiple Devices</li>
+                            <li><i class="fas fa-check"></i> 4K Streaming</li>
+                            <li><i class="fas fa-check"></i> Large File Downloads</li>
+                        </ul>
+                        <button class="cta-btn">Sign Up Now</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-speed">30 Mbps</div>
+                        <div class="package-price">KES 3,000/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Small Businesses</li>
+                            <li><i class="fas fa-check"></i> Heavy Usage</li>
+                            <li><i class="fas fa-check"></i> Multiple HD Streams</li>
+                            <li><i class="fas fa-check"></i> Cloud Services</li>
+                        </ul>
+                        <button class="cta-btn">Sign Up Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Homes Connected</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Reliable Uptime</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Customer Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">48hrs</span>
+                        <span class="stat-label">Installation Time</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Banner -->
+        <section class="installation-banner">
+            <div class="container">
+                <h2>First-Time Installation Special!</h2>
+                <p>Get connected for only KES 4,500 (includes router + 10 Mbps for 1st month)</p>
+                <button class="cta-btn" onclick="showSection('contact')">Request Installation</button>
+            </div>
+        </section>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="main-content">
+        <div class="hero" style="padding: 120px 0 60px;">
+            <div class="container">
+                <h1>Internet Packages</h1>
+                <p>Choose the perfect plan for your needs</p>
+            </div>
+        </div>
+        
+        <section class="packages">
+            <div class="container">
+                <h2 class="section-title">Detailed Package Comparison</h2>
+                
+                <!-- Installation Process -->
+                <div class="about-features" style="margin-bottom: 4rem;">
+                    <div class="feature-item">
+                        <div class="feature-icon">1</div>
+                        <h3>Request Connection</h3>
+                        <p>Contact us via phone, WhatsApp, or online form to request your connection.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">2</div>
+                        <h3>Technician Visit</h3>
+                        <p>Our expert technician will visit your location for router setup and installation.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">3</div>
+                        <h3>Enjoy Fast Internet</h3>
+                        <p>Start enjoying ultra-fast, reliable internet connectivity immediately!</p>
+                    </div>
+                </div>
+
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-speed">8 Mbps</div>
+                        <div class="package-price">KES 1,200/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Ideal for light browsing</li>
+                            <li><i class="fas fa-check"></i> Perfect for students</li>
+                            <li><i class="fas fa-check"></i> Social media & email</li>
+                            <li><i class="fas fa-check"></i> 1-2 devices</li>
+                            <li><i class="fas fa-check"></i> Standard definition streaming</li>
+                        </ul>
+                        <button class="cta-btn">Choose This Plan</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-speed">10 Mbps</div>
+                        <div class="package-price">KES 1,500/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Small households</li>
+                            <li><i class="fas fa-check"></i> HD video streaming</li>
+                            <li><i class="fas fa-check"></i> Online gaming</li>
+                            <li><i class="fas fa-check"></i> 2-3 devices</li>
+                            <li><i class="fas fa-check"></i> Video conferencing</li>
+                        </ul>
+                        <button class="cta-btn">Choose This Plan</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-speed">20 Mbps</div>
+                        <div class="package-price">KES 2,500/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Work from home ready</li>
+                            <li><i class="fas fa-check"></i> Multiple HD streams</li>
+                            <li><i class="fas fa-check"></i> 4K streaming capability</li>
+                            <li><i class="fas fa-check"></i> 4-6 devices</li>
+                            <li><i class="fas fa-check"></i> Large file downloads</li>
+                        </ul>
+                        <button class="cta-btn">Choose This Plan</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-speed">30 Mbps</div>
+                        <div class="package-price">KES 3,000/month</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Small businesses</li>
+                            <li><i class="fas fa-check"></i> Heavy internet usage</li>
+                            <li><i class="fas fa-check"></i> Multiple 4K streams</li>
+                            <li><i class="fas fa-check"></i> 8+ devices</li>
+                            <li><i class="fas fa-check"></i> Cloud services & backup</li>
+                        </ul>
+                        <button class="cta-btn">Choose This Plan</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Coverage Section -->
+    <section id="coverage" class="main-content">
+        <div class="hero" style="padding: 120px 0 60px;">
+            <div class="container">
+                <h1>Coverage Areas</h1>
+                <p>Serving Tharaka Nithi - Chuka and expanding across Kenya</p>
+            </div>
+        </div>
+        
+        <section class="coverage">
+            <div class="container">
+                <div class="coverage-content">
+                    <h2 class="section-title">Current Service Areas</h2>
+                    <div class="map-container" style="background: var(--secondary-white); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 3rem 0;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.234567890123!2d37.6488!3d-0.3347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17888c5b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sChuka%2C%20Kenya!5e0!3m2!1sen!2ske!4v1234567890123!5m2!1sen!2ske"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div style="background: var(--primary-orange); color: var(--secondary-white); padding: 1rem; text-align: center;">
+                            <h3 style="margin: 0; font-family: 'Poppins', sans-serif;">📍 Currently Serving: Chuka, Tharaka Nithi County</h3>
+                            <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Reliable fiber connectivity across the Chuka area</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <h3>Currently Covered</h3>
+                            <p>Tharaka Nithi - Chuka area with reliable fiber connectivity</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                            <h3>Coming Soon</h3>
+                            <p>Expanding to nearby counties - register your interest today!</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-users"></i></div>
+                            <h3>Community Focused</h3>
+                            <p>Prioritizing underserved communities for digital inclusion</p>
+                        </div>
+                    </div>
+                    
+                    <div class="installation-banner" style="margin-top: 4rem; border-radius: 15px;">
+                        <h2>Not in your area yet?</h2>
+                        <p>Register your interest and we'll notify you when we expand to your location</p>
+                        <button class="cta-btn" onclick="showSection('contact')">Request Coverage</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="main-content">
+        <div class="hero" style="padding: 120px 0 60px;">
+            <div class="container">
+                <h1>About Ultralinks Broadband Africa</h1>
+                <p>Connecting communities across Kenya with reliable, affordable internet</p>
+            </div>
+        </div>
+        
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Our Mission</h2>
+                        <p>To deliver affordable, fast, and reliable broadband services across underserved communities in Kenya, bridging the digital divide and empowering individuals, families, and businesses with seamless connectivity.</p>
+                        
+                        <h2 style="margin-top: 2rem;">Our Vision</h2>
+                        <p>To become the most trusted community-focused Internet Service Provider in Kenya, known for exceptional service, local support, and commitment to digital inclusion.</p>
+                    </div>
+                    <div style="background: var(--light-gray); padding: 3rem; border-radius: 15px; text-align: center;">
+                        <i class="fas fa-wifi" style="font-size: 4rem; color: var(--primary-orange); margin-bottom: 2rem;"></i>
+                        <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 1rem;">Ultra Speeds, Ultimate Reliability</h3>
+                        <p>Committed to providing the best internet experience for our community</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-title" style="margin-top: 4rem;">Why Choose Ultralinks?</h2>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <h3>Affordable Packages</h3>
+                        <p>Competitive pricing designed for local communities with flexible payment options and no hidden fees.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-signal"></i></div>
+                        <h3>Reliable Network</h3>
+                        <p>99% uptime guarantee with redundant infrastructure ensuring consistent, uninterrupted connectivity.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Quick Installation</h3>
+                        <p>Professional setup within 48 hours, including router configuration and network optimization.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <h3>Local Support</h3>
+                        <p>Dedicated 24/7 customer service with local technicians who understand your community's needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="main-content">
+        <div class="hero" style="padding: 120px 0 60px;">
+            <div class="container">
+                <h1>Customer Support</h1>
+                <p>We're here to help you stay connected</p>
+            </div>
+        </div>
+        
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does installation take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our professional technicians typically complete installation within 48 hours of your request. This includes router setup, network configuration, and testing to ensure optimal performance.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept M-Pesa, bank transfers, and cash payments. Monthly subscriptions can be paid through M-Pesa for convenience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is there a data limit on packages?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All our packages offer unlimited data usage. You only pay the monthly subscription fee with no additional charges for data consumption.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What if I experience connectivity issues?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contact our 24/7 support team immediately. We provide remote troubleshooting and can dispatch a technician if needed, usually within 4 hours during business days.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I upgrade my package anytime?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can upgrade your package at any time. The new speed will be activated within 24 hours, and billing adjustments will be prorated.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you provide the router?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, a high-quality WiFi router is included in the installation package. We also provide ongoing technical support and replacement if needed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="main-content">
+        <div class="hero" style="padding: 120px 0 60px;">
+            <div class="container">
+                <h1>Get Connected Today</h1>
+                <p>Ready to experience ultra-fast internet? Contact us now!</p>
+            </div>
+        </div>
+        
+        <section class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <h2 style="margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Request Installation</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location/Address</label>
+                                <input type="text" id="location" name="location" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="package">Preferred Package</label>
+                                <select id="package" name="package" style="width: 100%; padding: 12px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem;">
+                                    <option value="">Select a package</option>
+                                    <option value="8mbps">8 Mbps - KES 1,200/month</option>
+                                    <option value="10mbps">10 Mbps - KES 1,500/month</option>
+                                    <option value="20mbps">20 Mbps - KES 2,500/month</option>
+                                    <option value="30mbps">30 Mbps - KES 3,000/month</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Additional Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Any specific requirements or questions?"></textarea>
+                            </div>
+                            <button type="submit" class="cta-btn" style="width: 100%;">Submit Request</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h2 style="margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Contact Information</h2>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call or WhatsApp</h3>
+                                <p>0795 908428</p>
+                                <p style="color: var(--medium-gray); font-size: 0.9rem;">Available 24/7 for support and inquiries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Service Area</h3>
+                                <p>Tharaka Nithi - Chuka</p>
+                                <p style="color: var(--medium-gray); font-size: 0.9rem;">Expanding to nearby counties soon</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Response Time</h3>
+                                <p>Within 4 hours</p>
+                                <p style="color: var(--medium-gray); font-size: 0.9rem;">Technical support and installation requests</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Support</h3>
+                                <p>support@ultralinks.co.ke</p>
+                                <p style="color: var(--medium-gray); font-size: 0.9rem;">For detailed inquiries and support tickets</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 3rem; padding: 2rem; background: var(--light-gray); border-radius: 10px; text-align: center;">
+                            <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">Emergency Support</h3>
+                            <p>For urgent connectivity issues, call us immediately at <strong>0795 908428</strong></p>
+                            <p style="font-size: 0.9rem; color: var(--medium-gray);">Our technicians are on standby for critical support needs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ultralinks Broadband Africa</h3>
+                    <p>Connecting communities across Kenya with reliable, affordable internet solutions. Ultra Speeds, Ultimate Reliability.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/254795908428"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#packages" onclick="showSection('packages')">Internet Packages</a></li>
+                        <li><a href="#student-deals" onclick="showSection('student-deals')">Student Deals</a></li>
+                        <li><a href="#coverage" onclick="showSection('coverage')">Coverage Areas</a></li>
+                        <li><a href="#about" onclick="showSection('about')">About Us</a></li>
+                        <li><a href="#support" onclick="showSection('support')">Support</a></li>
+                        <li><a href="#contact" onclick="showSection('contact')">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#packages" onclick="showSection('packages')">Residential Internet</a></li>
+                        <li><a href="#packages" onclick="showSection('packages')">Business Solutions</a></li>
+                        <li><a href="#support" onclick="showSection('support')">Technical Support</a></li>
+                        <li><a href="#contact" onclick="showSection('contact')">Installation Service</a></li>
+                        <li><a href="#coverage" onclick="showSection('coverage')">Coverage Expansion</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0795 908428</li>
+                        <li><i class="fas fa-envelope"></i> info@ultralinks.co.ke</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tharaka Nithi - Chuka</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ultralinks Broadband Africa. All rights reserved. | Ultra Speeds, Ultimate Reliability.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254795908428" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.main-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update navigation active state
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // FAQ Toggle functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other FAQs
+                const allAnswers = document.querySelectorAll('.faq-answer');
+                const allIcons = document.querySelectorAll('.faq-question i');
+                
+                allAnswers.forEach(ans => ans.classList.remove('active'));
+                allIcons.forEach(ic => ic.style.transform = 'rotate(0deg)');
+                
+                // Open clicked FAQ
+                answer.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Smooth scrolling for in-page navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Form submission handler
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your request! We will contact you within 4 hours to schedule your installation.');
+                    form.reset();
+                });
+            }
+            
+            // Add animation on scroll (optional)
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe package cards for animation
+            const packageCards = document.querySelectorAll('.package-card');
+            packageCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
